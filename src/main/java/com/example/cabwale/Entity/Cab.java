@@ -1,11 +1,13 @@
 package com.example.cabwale.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.example.cabwale.Enums.CabType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,10 +18,11 @@ import lombok.Setter;
 public class Cab {
     @Id
     private int cabId;
-    private double rateperhour;
-    private String type;
+    private double ratePerHour;
+    @Enumerated(EnumType.STRING)// so that enums are not calculated according to the order but according to the string
+    private CabType type;
     private String number;
-    private boolean isavailable;
+    private boolean available;
 
 
 }

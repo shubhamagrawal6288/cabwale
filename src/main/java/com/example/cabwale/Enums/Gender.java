@@ -1,4 +1,4 @@
-package com.example.cabwale.Entity.Enums;
+package com.example.cabwale.Enums;
 
 public enum Gender {
     Male,
