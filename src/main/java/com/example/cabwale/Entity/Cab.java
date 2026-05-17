@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class Cab {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cabId;
     private double ratePerHour;
     @Enumerated(EnumType.STRING)// so that enums are not calculated according to the order but according to the string

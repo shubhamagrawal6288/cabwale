@@ -1,9 +1,7 @@
 package com.example.cabwale.Entity;
 
 import com.example.cabwale.Enums.BookingStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -18,6 +16,7 @@ import java.util.Date;
 @Entity
 public class Bookings {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookingId;
     private double price;
     private double distance;
