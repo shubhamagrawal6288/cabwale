@@ -1,5 +1,7 @@
 package com.example.cabwale.Service;
 
+import com.example.cabwale.Dto.Request.UserRequest;
+import com.example.cabwale.Dto.Response.UserResponse;
 import com.example.cabwale.Entity.User;
 import com.example.cabwale.Exception.UserNotFoundException;
 import com.example.cabwale.Repository.UserRepository;
@@ -19,9 +21,23 @@ public class UserService {
     UserRepository UserRepository;
 
 
-    public User addUser(User user) {
+    public UserResponse addUser(UserRequest userRequest) {
+        // dto to entity conversion
+        User user = new User();
+        user.setName(userRequest.getName());
+        user.setEmail(userRequest.getEmail());
+        user.setGender(userRequest.getGender());
+        user.setPhone(userRequest.getPhone());
+
+
+
         User savedUser = UserRepository.save(user);
-        return savedUser;
+
+        UserResponse userResponse = new UserResponse();
+        userResponse.setName(user.getName());
+        userResponse.setEmail(user.getEmail());
+        userResponse.setPhone(user.getPhone());
+        return userResponse;
     }
 
     public List<User> getAllUser() {

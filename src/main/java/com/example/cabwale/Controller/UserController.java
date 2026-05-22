@@ -1,5 +1,7 @@
 package com.example.cabwale.Controller;
 
+import com.example.cabwale.Dto.Request.UserRequest;
+import com.example.cabwale.Dto.Response.UserResponse;
 import com.example.cabwale.Entity.User;
 import com.example.cabwale.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,9 @@ public class UserController {
     @Autowired
     UserService UserService;
     @PostMapping("/addUser")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
+    public ResponseEntity<UserResponse> addUser(@RequestBody UserRequest userRequest) {
 
-        User savedUser = UserService.addUser(user);
+        UserResponse savedUser = UserService.addUser(userRequest);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
